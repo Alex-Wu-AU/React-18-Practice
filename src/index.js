@@ -16,37 +16,18 @@ const BookList = () => {
     </section>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://images-fe.ssl-images-amazon.com/images/I/71gpe7LeGSL._AC_UL900_SR900,600_.jpg"
-    alt="Outlive: The Science and Art of Longevity"
-  />
-);
-const Title = () => <h2>Outlive: The Science and Art of Longevity</h2>;
-const Author = () => {
-  return (
-    <h4 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.5rem" }}>
-      MD, Peter Attia
-    </h4>
-  );
-};
-//alternative: setting up a local object of styling
-// const Author = () => {
-//   const inLineStyles = {
-//     color: "#617d98",
-//     fontSize: "0.75rem",
-//     marginTop: "0.5rem",
-//   };
-//   return <h4 style={inLineStyles}> name </h4>;
-// };
-// better practice: use external styling sheet
+const author = "MD, Peter Attia";
 const Book = () => {
+  const title = "Outlive: The Science and Art of Longevity";
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img
+        src="https://images-fe.ssl-images-amazon.com/images/I/71gpe7LeGSL._AC_UL900_SR900,600_.jpg"
+        alt="Outlive: The Science and Art of Longevity"
+      />
+      <h2>{title}</h2>
+      <h4>{author.toUpperCase()}</h4>
+      <p>{6 + 6}</p>
     </article>
   );
 };
