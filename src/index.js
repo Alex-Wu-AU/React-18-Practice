@@ -3,56 +3,45 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
-// easier approach
-// shortcut for self-closing tag: input:text
-
+//React can't render an object: objects are not valid react child
+//destructing: break the properties of the object
+//spread operator: ...copy to a new object
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      >
-        <p>words</p>
-        <button>click me</button>
-      </Book>
-      <Book
-        author={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />;
+      })}
     </section>
   );
 };
 
-// if a property is not provided, even if it's there in the component see line 13, it will not be displayed
-// unless it's provided : i.e. props.job/title.etc.
-const firstBook = {
-  author: " Nagi Maehashi ",
-  title:
-    "RecipeTin Eats: Dinner: 150 recipes from Australia’s most popular cook",
-  img: "https://images-fe.ssl-images-amazon.com/images/I/81WavJQRqeL._AC_UL900_SR900,600_.jpg",
-};
-
-const secondBook = {
-  title: "Outlive: The Science and Art of Longevity",
-  author: "MD, Peter Attia",
-  img: "https://images-fe.ssl-images-amazon.com/images/I/71gpe7LeGSL._AC_UL900_SR900,600_.jpg",
-};
-
+const books = [
+  {
+    author: " Nagi Maehashi ",
+    title:
+      "RecipeTin Eats: Dinner: 150 recipes from Australia’s most popular cook",
+    img: "https://images-fe.ssl-images-amazon.com/images/I/81WavJQRqeL._AC_UL900_SR900,600_.jpg",
+    id: 1,
+  },
+  {
+    title: "Outlive: The Science and Art of Longevity",
+    author: "MD, Peter Attia",
+    img: "https://images-fe.ssl-images-amazon.com/images/I/71gpe7LeGSL._AC_UL900_SR900,600_.jpg",
+    id: 2,
+  },
+];
 //vanilla.js alternative
 //const {img, title, author} = props;
 
 const Book = (props) => {
   console.log(props);
-  const { img, title, author, children } = props;
+  const { img, title, author } = props;
   return (
     <article className="book">
       <img src={img} alt={props.title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
-      {children}
     </article>
   );
 };
