@@ -9,26 +9,50 @@ import "./index.css";
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book job="developer" />
-      <Book title="random title" number={22} />
+      <Book
+        author={firstBook.author}
+        title={firstBook.title}
+        img={firstBook.img}
+      >
+        <p>words</p>
+        <button>click me</button>
+      </Book>
+      <Book
+        author={secondBook.author}
+        title={secondBook.title}
+        img={secondBook.img}
+      />
     </section>
   );
 };
-const title = "Outlive: The Science and Art of Longevity";
-const author = "MD, Peter Attia";
-const image =
-  "https://images-fe.ssl-images-amazon.com/images/I/71gpe7LeGSL._AC_UL900_SR900,600_.jpg";
 
 // if a property is not provided, even if it's there in the component see line 13, it will not be displayed
 // unless it's provided : i.e. props.job/title.etc.
+const firstBook = {
+  author: " Nagi Maehashi ",
+  title:
+    "RecipeTin Eats: Dinner: 150 recipes from Australia’s most popular cook",
+  img: "https://images-fe.ssl-images-amazon.com/images/I/81WavJQRqeL._AC_UL900_SR900,600_.jpg",
+};
+
+const secondBook = {
+  title: "Outlive: The Science and Art of Longevity",
+  author: "MD, Peter Attia",
+  img: "https://images-fe.ssl-images-amazon.com/images/I/71gpe7LeGSL._AC_UL900_SR900,600_.jpg",
+};
+
+//vanilla.js alternative
+//const {img, title, author} = props;
+
 const Book = (props) => {
   console.log(props);
+  const { img, title, author, children } = props;
   return (
     <article className="book">
-      <img src={image} alt={title} />
+      <img src={img} alt={props.title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
-      <p>{props.job}</p>
+      {children}
     </article>
   );
 };
