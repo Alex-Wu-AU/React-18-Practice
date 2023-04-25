@@ -35,5 +35,11 @@ body {
 }
 .book h2 {
   margin-top: 1rem;
-  font-size: 2rem;
+  font-size: 1rem;
+}
+.book h4 {
+  /*won't work, since inline stype will prioritize */
+  color: red;
+  /*will work*/
+  letter-spacing: 2px;
 }

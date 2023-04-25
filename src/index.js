@@ -25,8 +25,22 @@ const Image = () => (
 );
 const Title = () => <h2>Outlive: The Science and Art of Longevity</h2>;
 const Author = () => {
-  return <h4>MD, Peter Attia</h4>;
+  return (
+    <h4 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.5rem" }}>
+      MD, Peter Attia
+    </h4>
+  );
 };
+//alternative: setting up a local object of styling
+// const Author = () => {
+//   const inLineStyles = {
+//     color: "#617d98",
+//     fontSize: "0.75rem",
+//     marginTop: "0.5rem",
+//   };
+//   return <h4 style={inLineStyles}> name </h4>;
+// };
+// better practice: use external styling sheet
 const Book = () => {
   return (
     <article className="book">
